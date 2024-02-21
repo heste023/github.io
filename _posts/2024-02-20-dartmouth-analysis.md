@@ -382,8 +382,10 @@ to Dartmouth.
         )
       
       # Dynamically adjust x-limits to include all densities
-      x_min <- min(means$Counts_In_Range) - 5
-      x_max <- max(means$Counts_In_Range) + 5
+      q_low <- quantile(results$Counts_In_Range, probs = 0.0001, na.rm = TRUE)
+      q_high <- quantile(results$Counts_In_Range, probs = 0.9999, na.rm = TRUE)
+      x_min <- ifelse(is.finite(q_low), q_low, min(results$Counts_In_Range, na.rm = TRUE)) - 5
+      x_max <- ifelse(is.finite(q_high), q_high, max(results$Counts_In_Range, na.rm = TRUE)) + 5
       p <- p + xlim(x_min, x_max)
       
       print(p)
@@ -393,10 +395,6 @@ to Dartmouth.
     mean_ebrw_list <- c(733, 690, 670)
     mean_math_list <- c(750, 710, 690)
     run_simulations_with_means_and_plot_density(1000, mean_ebrw_list, mean_math_list)
-
-    ## Warning: Removed 788 rows containing non-finite values (`stat_density()`).
-
-![](Dartmouth-analysis_files/figure-markdown_strict/unnamed-chunk-4-1.png)
 
 #### Conclusion Four: Test-optional policies do not necessarily increase the proportion of less-advantaged students in the applicant pool.
 
