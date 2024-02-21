@@ -37,8 +37,7 @@ disappointed. Why?
 
 Here are the conclusions and why I remain skeptical.
 
-##### Conclusion One: SAT (and ACT) scores are highly predictive of academic
-achievement at Dartmouth.
+#### Conclusion One: SAT (and ACT) scores are highly predictive of academic achievement at Dartmouth.
 
 As evidence, the authors show a linear relationship between SAT scores
 and first-year GPA (in a visual) combined with a regression using
@@ -175,17 +174,14 @@ Standardized test scores are likely highly predictive of first-year
 success at Dartmouth. You just can’t make the claim that it’s more
 predictive than high-school GPA with this approach.
 
-##### Conclusion Two: SAT is a strong predictor of academic success at
-Dartmouth for all subgroups.
+#### Conclusion Two: SAT is a strong predictor of academic success at Dartmouth for all subgroups.
 
 The author’s first conclusion is weakly supported by the analysis - what
 about the evidence provided for this claim? Again, this section
 references the tables with regression, using R-squared to make claims
 about prediction abilities. It’s fine, but weak evidence.
 
-##### Conclusion Three: A test-optional policy is likely a barrier to
-Dartmouth identifying less-advantaged students who would succeed at
-Dartmouth.
+#### Conclusion Three: A test-optional policy is likely a barrier to Dartmouth identifying less-advantaged students who would succeed at Dartmouth.
 
 Here’s where it gets interesting! I like this claim - as someone who’s
 worked in higher education, it feels like it should be true. Again, it’s
@@ -402,8 +398,7 @@ to Dartmouth.
 
 ![](Dartmouth-analysis_files/figure-markdown_strict/unnamed-chunk-4-1.png)
 
-##### Conclusion Four: Test-optional policies do not necessarily increase the
-proportion of less-advantaged students in the applicant pool.
+#### Conclusion Four: Test-optional policies do not necessarily increase the proportion of less-advantaged students in the applicant pool.
 
 This, much like Conclusion Three, seems pretty straightforward, and I
 like that there’s some uncertainty narrated into the conclusion. The
