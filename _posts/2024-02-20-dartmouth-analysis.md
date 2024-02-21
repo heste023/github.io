@@ -1,4 +1,4 @@
-## Are Standardized Test Scores Making a Comeback?
+## Are Standardized Test Requirements Making a Comeback?
 
 I stumbled on this report on hackernews a week or two ago:
 <https://home.dartmouth.edu/sites/home/files/2024-02/sat-undergrad-admissions.pdf>.
@@ -327,7 +327,7 @@ to Dartmouth.
       sum(total_scores >= 1450 & total_scores <= 1490)
     }
 
-    # Adjusted function to run simulations with given mean values and plot density
+    # Function to run simulations with given mean values and plot density
     run_simulations_with_means_and_plot_density <- function(
         num_simulations, mean_ebrw_list, mean_math_list) {
       if (length(mean_ebrw_list) != length(mean_math_list)) {
@@ -362,7 +362,7 @@ to Dartmouth.
         )
       means$Label <- paste("Mean:", round(means$Counts_In_Range, 2))
       
-      # Plot with adjustments
+      # Plot 
       p <- ggplot(
         results, aes(x = Counts_In_Range, fill = paste(Mean_EBRW, Mean_Math))
         ) +
@@ -393,7 +393,7 @@ to Dartmouth.
       print(p)
     }
 
-    # Example usage with the provided mean values
+    # Mean values
     mean_ebrw_list <- c(733, 690, 670)
     mean_math_list <- c(750, 710, 690)
     run_simulations_with_means_and_plot_density(1000, mean_ebrw_list, mean_math_list)
