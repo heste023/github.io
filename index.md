@@ -1,5 +1,1 @@
-Here you can say lots of fun things about your site.
-
-Maybe say a some things about yourself.
-
-Or maybe what you plan to blog about.
+I am a Data Scientist at CGI in Birmingham, Alabama. I am a three-time alum of The University of Alabama, my BS and MA from the Culverhouse College of Commerce and my Ph.D. in Public Policy and Economics from The University of Alabama College of Arts and Sciences.
