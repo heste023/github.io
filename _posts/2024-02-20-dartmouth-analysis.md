@@ -1,3 +1,5 @@
+## Are Standardized Test Scores Making a Comeback?
+
 I stumbled on this report on hackernews a week or two ago:
 <https://home.dartmouth.edu/sites/home/files/2024-02/sat-undergrad-admissions.pdf>.
 The report makes the claim that the use of standardized test scores “is
