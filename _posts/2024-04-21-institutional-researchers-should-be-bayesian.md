@@ -109,7 +109,7 @@ So we end up with a distribution of the possible increases in revenue from more 
 
 The flexibility of the Bayesian approach is what makes this possible. How would we do something similar using Frequentist methods? While the code and results are similar (see below) the interpretation is drastically different: the interval from $178,445 to $188,890 means that if we were to repeat this procedure many times, 95% of the bootstrapped intervals would contain the true increase in revenue. But importantly - 95% confidence here *is about the procedure, not the probability of a specific value lying within an interval.* In practice, analyses are hardly ever repeated. And with only one interval, you can never know for sure that your interval contains the true value or not. 
 
-'''
+```
 library(dplyr)
 
 set.seed(1)
@@ -137,8 +137,6 @@ model <- glm(Retained ~ Gender + HSGPA + OnCampus, data = data, family = binomia
 
 # Check the summary of the model
 summary(model)
-
-# ------------------------------------------------------------------------------
 
 # Additional incremental revenue
 # Extract the model coefficients
@@ -211,8 +209,7 @@ conf_interval <- quantile(bootstrap_revenue_increase, c(0.025, 0.975))
 
 # Print the confidence interval
 cat("95% Confidence Interval: [$", round(conf_interval[1], 2), ", $", round(conf_interval[2], 2), "]\n", sep = "")
-
-'''
+```
 
 Most notably, people tend to *think* of Frequentist intervals in the Bayesian way - that there is a 95% probability that the true value falls within the interval. For decision analysis this a big risk! The correct way to interpret a Frequentist confidence interval is to not interpret it at all - it's simply the result of a procedure that will contain the true value in an infinite number of hypothetical repetitions. If you need something to use so that you can make decisions using with a range of values, only the Bayesian approach properly accounts for uncertainty in the data and the precision of the estimate. 
 
