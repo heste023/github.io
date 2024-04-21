@@ -1,6 +1,3 @@
-
-Institutional Researchers Should Be Bayesian 
-
 Over the past few years, I've moved further towards adopting Bayesian analysis methods, and I'm convinced that more people should. In my career, I've worked in tech (currently) and in higher education, and although advanced statistical analysis is rare in tech (surprisingly!), it's common in higher education. 
 
 There are two broad categories of professionals who work at colleges and universities - staff and faculty. Faculty teach and hand out grades. Staff are the other personnel who run the college, from lawncare and maintenance to accountants and presidents. Most faculty are highly trained, the majority having terminal degrees in their field. On the staff side, though, the training varies widely. Many staff are trained on the job, but there are also pockets of professionals who are highly credentialed, many who have similar pedigrees to the faculty members that they work alongside. 
@@ -15,7 +12,7 @@ In contrast, the Bayesian approach to statistics uses Bayes' Theorem alongside p
 
 Here's a concrete example applicable to IR. Numerous studies have suggested that living on-campus corresponds to increased student success for first-year students. One of the most common outcomes that researchers use as a proxy for student success is retention to the second year. Let's say that we've used a Bayesian logistic regression analysis to conclude that living on-campus is, on average, associated with an increase of 0.56 in the log-odds of retention compared to not being on-campus. Here's some code that will give you that estimate: 
 
-'''
+```
 library(rethinking)
 
 set.seed(1)
@@ -56,8 +53,7 @@ model <- ulam(
 
 # Check the summary of the model
 precis(model)
-
-'''
+```
 
 Unfortunately for us, though, administrators don't care about beta coefficients for the log-odds of retention. They care about other things - increases in income, or prestige, for example. How can we translate this estimate into something meaningful to be used by decision makers? 
 
@@ -72,7 +68,7 @@ It would be nice to have a range of values to present to our colleges leadership
 
 Here's some code that does that: 
 
-'''
+```
 # Additional incremental revenue 
 
 # Extract the posterior samples
@@ -107,8 +103,7 @@ plot(density(revenue_increase), main = "Posterior Distribution of Incremental Re
      xlab = "Revenue Increase (USD)", ylab = "Density")
 abline(v = quantile(revenue_increase, c(0.025, 0.975)), col = "red", lty = 2)
 legend("topright", "95% Credible Interval", col = "red", lty = 2)
-
-'''
+```
 
 So we end up with a distribution of the possible increases in revenue from more students living on campus. Assuming that our model is correct, there is a 95% probability that the revenue increase from having 700 students living on campus lies between $178,479 and $188,727. If our administrators accurately understand the costs, they can then make a more informed decision about whether this is a good policy decision for the school based on the range of values.
 
