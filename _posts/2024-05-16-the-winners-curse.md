@@ -54,12 +54,10 @@ dag_3 <- dagitty("dag {
   SATScore -> STEM -> Performance
   UnderrepMinority -> STEM -> Performance
 } ")
-
+plot(dag_3)
 ```
 
-Using the [daggity](https://www.dagitty.net/) package, we can plot this structure: 
-
-And get the variables that we need to include in our regression that, according to the DAG, will allow us to estimate a causal effect without confounding: 
+Using the [daggity](https://www.dagitty.net/) package, we can plot this structure and get the variables that we need to include in our regression that, according to the DAG, will allow us to estimate a causal effect without confounding: 
 
 ```
 > adjustmentSets(dag_3, exposure = 'OnCampus', outcome = 'Performance')
@@ -249,9 +247,9 @@ ggplot(results_df, aes(x = estimate, fill = significant), height = 6) +
         legend.text = element_text(size = 12))
 ```
 
-And here's where it gets interesting! Around 5% of the time, because of random variation in the data simulating process, in both the Optimal and Full models, the coefficient value for OnCampus was positive or negative and significant. 
+And here's where it gets interesting! Around 5% of the time, because of random variation in the data simulating process, in both the Optimal and Full models, the coefficient value for OnCampus was positive or negative _and significant_. 
 
-But because those results are positive or negative and significant, they are the most likely results to be published! The true effect of OnCampus on Performance is zero - I wrote it into the code - and in a real-world setting, a study that recovers the true value in a research setting is far less likely to be published than the simulations that incorrectly model the true effect. 
+But because those results are positive or negative and significant, they are the most likely results to be published! The true effect of OnCampus on Performance is zero - I wrote it into the code - but in a real-world setting, a study that recovers the true value in a research setting is far less likely to be published than studies recovering the true effect. 
 
 In other words, the results that were simply noise are most likely to be published, discussed, and to effect policy. This is a big deal! 
 
@@ -394,8 +392,6 @@ plot <- ggplot(data_all, aes(x = x, y = density, group = row, color = includes_z
 
 plot
 ```
-
-
 
 But the Bayesian approach is different in one crucial way - Bayesians don't care about statistical significance, so there's less opportunity for publication bias to impact the results! The posterior distribution is the only estimator for Bayesian analyses, and posterior distributions embody the universe of possible values for the data, given the assumptions of the model. The true coefficient value - 0 in this case - is just as likely to be published, discussed, and to effect policy as the results that capture the random noise in the data generating process. 
 
