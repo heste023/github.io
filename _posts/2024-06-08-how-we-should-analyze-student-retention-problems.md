@@ -14,13 +14,13 @@ There are a number of theories that explain why student's leave college without 
 
 Let's say that we have a measure of student success, first-semester GPA, and also a measure reflecting a student's first-semester involvement, and we'd like to estimate the relationship between the two. 
 
-	$First Semester GPA = f(Involvement, U)$
+	First Semester GPA = f(Involvement, U)
 
-$U$ in this case stands for "unobserved," acknowledging that first-semester GPA is impacted not just by a student's academic and social involvement, but also other factors that we do not have measured. We could also write it like this: 
+U in this case stands for "unobserved," acknowledging that first-semester GPA is impacted not just by a student's academic and social involvement, but also other factors that we do not have measured. We could also write it like this: 
 
-	$First Semester GPA = \beta Involvement + U$
+	First Semester GPA = β Involvement + U
 
-Translated: first-semester GPA is a proportion of $Involvement$ plus the influence of other, unobserved causes. 
+Translated: first-semester GPA is a proportion of Involvement plus the influence of other, unobserved causes. 
 
 We will also want to define a DAG for our analysis that makes the causal structure explicit. We can use the ggdag package in R for this: 
 
@@ -93,13 +93,13 @@ Here's what we know, scientifically:
 
 Here's the way that we could represent what we know scientifically in a statistical model: 
 
-	$FirstSemesterGPA_i \sim \text{Normal}(\mu_i, \sigma)$
-	$\mu_i = \alpha + \beta \cdot \text{Involvement}_i$
-	$\alpha \sim \text{Normal}(0, 1)$
-	$\beta \sim \text{Uniform}(0, 1)$
-	$\sigma \sim \text{Uniform}(0, 5)$
+	FirstSemesterGPA_i ~ Normal(μ_i, σ)
+	μ_i = α + β * Involvement_i
+	α ~ Normal(0, 1)
+	β ~ Uniform(0, 1)
+	σ ~ Uniform(0, 5)
 
-Since our model is a line ($\mu_i = \alpha + \beta \cdot \text{Involvement}_i$) and we are estimating a posterior distribution, we can sample from our priors here to understand the range of possibilities, like this: 
+Since our model is a line (μ_i = α + β * Involvement_i) and we are estimating a posterior distribution, we can sample from our priors here to understand the range of possibilities, like this: 
 
 ```
 data <- data.frame(
@@ -123,7 +123,7 @@ These are all over the place! Some of the lines have a pretty serious slope; oth
 
 Next, we need to try and *recover the known values of our simulation*. There are thousands of open-source packages that we could use in R and Python for building a statistical model (and this is probably the most common way to do research today). One of the only ways to validate that the statistical model is working as expected is to create datasets where the values are known and recover those values with the model. 
 
-For this exercise, I'll use ```quap``` from the rethinking package in R to try and recover the values within the simulation; we want to verify that our beta value, $\beta$ , is around 0.5 and sigma value, $\sigma$, is around 5 . Here's the code for that: 
+For this exercise, I'll use ```quap``` from the rethinking package in R to try and recover the values within the simulation; we want to verify that our beta value, \beta$ , is around 0.5 and sigma value, $\sigma$, is around 5 . Here's the code for that: 
 
 ```
 m <- quap(
