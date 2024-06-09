@@ -18,7 +18,7 @@ Let's say that we have a measure of student success, first-semester GPA, and als
 
 U in this case stands for "unobserved," acknowledging that first-semester GPA is impacted not just by a student's academic and social involvement, but also other factors that we do not have measured. We could also write it like this: 
 
-	First Semester GPA = β Involvement + U
+	First Semester GPA = β * Involvement + U
 
 Translated: first-semester GPA is a proportion of Involvement plus the influence of other, unobserved causes. 
 
@@ -51,7 +51,7 @@ ggdag_status(
   
 ```
 
-Before we fit anything to any actual data from our institution, we want to make sure that that we are able to *validate all of our assumptions with synthetic data*. So we need a function to simulate $First Semester GPA$. Here's a simple function in R that will give us some synthetic students with measures for first-semester GPA, $FGPA$, and $Involvement$: 
+Before we fit anything to any actual data from our institution, we want to make sure that that we are able to *validate all of our assumptions with synthetic data*. So we need a function to simulate First Semester GPA. Here's a simple function in R that will give us some synthetic students with measures for first-semester GPA, FGPA, and Involvement: 
 
 ```
 # R function to simulate first semester GPA
